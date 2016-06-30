@@ -14,19 +14,50 @@
 		<li class="item">666</li>
 	</ul>
 <script>
-	var oList = document.getElementById('list');
+//	var oList = document.getElementById('list');
+//	
+//	function getByClass(sclass,parent){
+//		parent = parent || document;
+//		var arr = [];
+//		if(parent.getElementsByClassName){
+//			return parent.getElementsByClassName(sclass);
+//		}else{
+//			var re = new RegExp('\\b'+sclass+'\\b');
+//			var aEle = parent.getElementsByTagName('*');
+//			console.log(aEle.length)
+//			for (var i = 0; i < aEle.length; i++) {
+//				console.log(re.test(aEle[i].className))
+//				if(re.test(aEle[i].className)){
+//					arr.push(aEle[i]);
+//				}
+//			}
+//			return arr;
+//		}
+//	}
+//	
+//	
+//	
+//	var aItem = getByClass('item',oList);
+//	for (var i = 0; i < aItem.length; i++) {
+//		aItem[i].style.backgroundColor = 'pink';
+//	}
 	
-	function getByClass(sclass,parent){
+	var oList = document.getElementById("list");
+	var aItem = getByClass('item',oList);
+	for (var i = 0; i < aItem.length; i++) {
+		aItem[i].style.background = 'red';
+	}
+	
+	function getByClass(sClass,parent){
 		parent = parent || document;
+		
 		var arr = [];
 		if(parent.getElementsByClassName){
-			return parent.getElementsByClassName(sclass);
+			return parent.getElementsByClassName(sClass);
 		}else{
-			var re = new RegExp('\\b'+sclass+'\\b');
+			var re = new RegExp('\\b'+sClass+'\\b');
 			var aEle = parent.getElementsByTagName('*');
-			console.log(aEle.length)
 			for (var i = 0; i < aEle.length; i++) {
-				console.log(re.test(aEle[i].className))
 				if(re.test(aEle[i].className)){
 					arr.push(aEle[i]);
 				}
@@ -35,12 +66,6 @@
 		}
 	}
 	
-	
-	
-	var aItem = getByClass('item',oList);
-	for (var i = 0; i < aItem.length; i++) {
-		aItem[i].style.backgroundColor = 'pink';
-	}
 	
 </script>
 </body>
