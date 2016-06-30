@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>getByClass</title>
+</head>
+<body>
+	<ul id="list">
+		<li>111</li>
+		<li class="item">222</li>
+		<li>333</li>
+		<li class="item">444</li>
+		<li>555</li>
+		<li class="item">666</li>
+	</ul>
+<script>
+	var oList = document.getElementById('list');
+	
+	function getByClass(sclass,parent){
+		parent = parent || document;
+		var arr = [];
+		if(parent.getElementsByClassName){
+			return parent.getElementsByClassName(sclass);
+		}else{
+			var re = new RegExp('\\b'+sclass+'\\b');
+			var aEle = parent.getElementsByTagName('*');
+			console.log(aEle.length)
+			for (var i = 0; i < aEle.length; i++) {
+				console.log(re.test(aEle[i].className))
+				if(re.test(aEle[i].className)){
+					arr.push(aEle[i]);
+				}
+			}
+			return arr;
+		}
+	}
+	
+	
+	
+	var aItem = getByClass('item',oList);
+	for (var i = 0; i < aItem.length; i++) {
+		aItem[i].style.backgroundColor = 'pink';
+	}
+	
+</script>
+</body>
+</html>
